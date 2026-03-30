@@ -201,9 +201,114 @@ console.log(Utils.greet("Мария"));
 console.log("Умножение:", Utils.multiply(3, 9));
 */
 
-import { square, cube, E } from "./math.js";
+/*import { square, cube, E } from "./math.js";
 
 console.log("\n=== Практика: модули (math) ===");
 console.log("square(4) =", square(4));
 console.log("cube(3) =", cube(3));
 console.log("E =", E);
+*/
+
+/*console.log("Промисы");
+
+const simplePromise = new Promise((resolve, reject) => {
+  const success = true;
+  if (success) {
+    resolve("Операция выполнена успешно!");
+  } else {
+    reject("Произошла ошибка!");
+  }
+});
+
+simplePromise
+  .then((result) => {
+    console.log("Результат:", result);
+  })
+  .catch((error) => {
+    console.log("Ошибка:", error);
+  });
+
+function delay(ms) {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve(`Прошло ${ms} миллисекунд`);
+    }, ms);
+  });
+}
+
+delay(1000).then((message) => console.log(message));
+
+function fetchUserData(userId) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (userId > 0) {
+        resolve({
+          id: userId,
+          name: "Иван Иванов",
+          email: "ivan@example.com",
+        });
+      } else {
+        reject("Неверный ID пользователя");
+      }
+    }, 1500);
+  });
+}
+
+fetchUserData(1)
+  .then((user) => console.log("Пользователь:", user))
+  .catch((error) => console.log("Ошибка:", error));
+
+function step1() {
+  return new Promise((resolve) => {
+    setTimeout(() => resolve("Шаг 1 завершён"), 500);
+  });
+}
+
+function step2(previousResult) {
+  return new Promise((resolve) => {
+    setTimeout(() => resolve(`${previousResult} -> Шаг 2 завершён`), 500);
+  });
+}
+
+function step3(previousResult) {
+  return new Promise((resolve) => {
+    setTimeout(() => resolve(`${previousResult} -> Шаг 3 завершён`), 500);
+  });
+}
+
+step1()
+  .then((res1) => step2(res1))
+  .then((res2) => step3(res2))
+  .then((finalResult) => console.log("Цепочка:", finalResult))
+  .catch((error) => console.log("Ошибка цепочки:", error));
+*/
+
+console.log("Практика: промисы");
+
+function checkInventory(productName, inStock) {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      if (inStock === true) {
+        resolve(`Товар "${productName}" есть на складе.`);
+      } else {
+        reject(`Ошибка: товара "${productName}" нет в наличии.`);
+      }
+    }, 1000);
+  });
+}
+
+checkInventory("Ноут", true)
+  .then((message) => {
+    console.log("Успех:", message);
+  })
+  .catch((error) => {
+    console.log("Ошибка:", error);
+  });
+
+checkInventory("Тел", false)
+  .then((message) => {
+    console.log("Успех:", message);
+  })
+  .catch((error) => {
+    console.log("Ошибка:", error);
+  });
