@@ -140,7 +140,7 @@ console.log("Второе число:", second);
 console.log("Остальные числа:", rest);
 */
 
-console.log("Практика: spread");
+/*console.log("Практика: spread");
 
 const nums1 = [3, 7, 1];
 const nums2 = [10, 4, 8];
@@ -183,3 +183,27 @@ const merged = {
 };
 
 console.log("Объединённый объект:", merged);
+*/
+
+/*import sayHello, { greet, add, multiply as umnozhit, PI } from "./utils.js";
+import * as Utils from "./utils.js";
+
+console.log("Модули");
+
+console.log(sayHello());
+console.log(greet("Алексей"));
+console.log("5 + 3 =", add(5, 3));
+console.log("Значение PI:", PI);
+
+console.log("4 * 7 =", umnozhit(4, 7));
+
+console.log(Utils.greet("Мария"));
+console.log("Умножение:", Utils.multiply(3, 9));
+*/
+
+import { square, cube, E } from "./math.js";
+
+console.log("\n=== Практика: модули (math) ===");
+console.log("square(4) =", square(4));
+console.log("cube(3) =", cube(3));
+console.log("E =", E);
